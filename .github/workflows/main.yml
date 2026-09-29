@@ -25,11 +25,14 @@ jobs:
             - name: Setup Haxe
               uses: krdlab/setup-haxe@master
               with:
-                  haxe-version: 4.3.6
+                  haxe-version: 4.3.7
 
             - name: Compiling
               run: |
-                  haxelib install hxcpp --quiet
+                  haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git --quiet
+                  cd "$(haxelib libpath hxcpp)/tools/hxcpp"
+                  haxe compile.hxml
+                  cd ${{ github.workspace }}
                   haxelib dev hxluajit .
                   cd examples/${{matrix.sample}}
                   haxe build-win.hxml
@@ -46,11 +49,14 @@ jobs:
             - name: Setup Haxe
               uses: krdlab/setup-haxe@master
               with:
-                  haxe-version: 4.3.6
+                  haxe-version: 4.3.7
 
             - name: Compiling
               run: |
-                  haxelib install hxcpp --quiet
+                  haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git --quiet
+                  cd "$(haxelib libpath hxcpp)/tools/hxcpp"
+                  haxe compile.hxml
+                  cd ${{ github.workspace }}
                   haxelib dev hxluajit .
                   cd examples/${{matrix.sample}}
                   haxe build-unix.hxml
@@ -67,11 +73,14 @@ jobs:
             - name: Setup Haxe
               uses: krdlab/setup-haxe@master
               with:
-                  haxe-version: 4.3.6
+                  haxe-version: 4.3.7
 
             - name: Compiling
               run: |
-                  haxelib install hxcpp --quiet
+                  haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git --quiet
+                  cd "$(haxelib libpath hxcpp)/tools/hxcpp"
+                  haxe compile.hxml
+                  cd ${{ github.workspace }}
                   haxelib dev hxluajit .
                   cd examples/${{matrix.sample}}
                   haxe build-unix.hxml
