@@ -54,7 +54,7 @@ jobs:
             - name: Compiling
               run: |
                   haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git --quiet
-                  cd "$(haxelib libpath hxcpp)/tools/hxcpp"
+                  cd $(haxelib libpath hxcpp)/tools/hxcpp
                   haxe compile.hxml
                   cd ${{ github.workspace }}
                   haxelib dev hxluajit .
@@ -78,7 +78,7 @@ jobs:
             - name: Compiling
               run: |
                   haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git --quiet
-                  cd "$(haxelib libpath hxcpp)/tools/hxcpp"
+                  cd $(haxelib libpath hxcpp)/tools/hxcpp
                   haxe compile.hxml
                   cd ${{ github.workspace }}
                   haxelib dev hxluajit .
