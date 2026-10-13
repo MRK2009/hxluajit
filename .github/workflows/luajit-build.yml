@@ -42,7 +42,7 @@ jobs:
                   path: LuaJIT/build/x86_64
                   if-no-files-found: warn
     Windows-arm64:
-        runs-on: windows-latest
+        runs-on: windows-11-arm
         steps:
             - name: Checkout
               uses: actions/checkout@main
@@ -50,7 +50,7 @@ jobs:
             - name: Setup MSVC
               uses: ilammy/msvc-dev-cmd@v1
               with:
-                  arch: amd64_arm64
+                  arch: arm64
 
             - name: Compiling
               run: ./project/luajit/scripts/Windows-Building.bat arm64
